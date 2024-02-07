@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor | Order summary card</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="{{config.wwwroot}}/local/payment/amd/style/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+    </script>
+    <script type="text/javascript" src="https://media.pay-link.eu/modal/v1/gateway.min.js"></script>
+    <script type="text/javascript" src="https://media.pay-link.eu/modal/v1/modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    <!-- Your Custom Script -->
+    <!-- <script src="https://paylink.sa/assets/js/paylink.js"></script> -->
+    <!-- <script src="https://payment.paylink.sa/assets/js/paylink.js"></script> -->
+    <script src="https://demo.paylink.sa/paylink.src.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+    <script src="https://secure.gosell.io/js/sdk/tap.min.js"></script>
+
+    <script src="./script.js" type="module" async defer></script>
+    <script src="{{config.wwwroot}}/local/payment/amd/js/tap.js" type="module" async defer></script>
+
+    <style>
+        .form-row {
+            width: 70%;
+            float: left;
+            background-color: #ededed;
+        }
+
+        #card-element {
+            background-color: transparent;
+            height: 40px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            box-shadow: 0 1px 3px 0 #e6ebf1;
+            -webkit-transition: box-shadow 150ms ease;
+            transition: box-shadow 150ms ease;
+        }
+
+        #card-element--focus {
+            box-shadow: 0 1px 3px 0 #cfd7df;
+        }
+
+        #card-element--invalid {
+            border-color: #fa755a;
+        }
+
+        #card-element--webkit-autofill {
+            background-color: #fefde5 !important;
+        }
+
+        #submitbutton,
+        #tap-btn {
+            align-items: flex-start;
+            background-attachment: scroll;
+            background-clip: border-box;
+            background-color: rgb(50, 50, 93);
+            background-image: none;
+            background-origin: padding-box;
+            background-position-x: 0%;
+            background-position-y: 0%;
+            background-size: auto;
+            border-bottom-color: rgb(255, 255, 255);
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-style: none;
+            border-bottom-width: 0px;
+            border-image-outset: 0px;
+            border-image-repeat: stretch;
+            border-image-slice: 100%;
+            border-image-source: none;
+            border-image-width: 1;
+            border-left-color: rgb(255, 255, 255);
+            border-left-style: none;
+            border-left-width: 0px;
+            border-right-color: rgb(255, 255, 255);
+            border-right-style: none;
+            border-right-width: 0px;
+            border-top-color: rgb(255, 255, 255);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-top-style: none;
+            border-top-width: 0px;
+            box-shadow: rgba(50, 50, 93, 0.11) 0px 4px 6px 0px, rgba(0, 0, 0, 0.08) 0px 1px 3px 0px;
+            box-sizing: border-box;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            display: block;
+            float: left;
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            font-size: 15px;
+            font-stretch: 100%;
+            font-style: normal;
+            font-variant-caps: normal;
+            font-variant-east-asian: normal;
+            font-variant-ligatures: normal;
+            font-variant-numeric: normal;
+            font-weight: 600;
+            height: 35px;
+            letter-spacing: 0.375px;
+            line-height: 35px;
+            margin-bottom: 0px;
+            margin-left: 12px;
+            margin-right: 0px;
+            margin-top: 28px;
+            outline-color: rgb(255, 255, 255);
+            outline-style: none;
+            outline-width: 0px;
+            overflow-x: visible;
+            overflow-y: visible;
+            padding-bottom: 0px;
+            padding-left: 14px;
+            padding-right: 14px;
+            padding-top: 0px;
+            text-align: center;
+            text-decoration-color: rgb(255, 255, 255);
+            text-decoration-line: none;
+            text-decoration-style: solid;
+            text-indent: 0px;
+            text-rendering: auto;
+            text-shadow: none;
+            text-size-adjust: 100%;
+            text-transform: none;
+            transition-delay: 0s;
+            transition-duration: 0.15s;
+            transition-property: all;
+            transition-timing-function: ease;
+            white-space: nowrap;
+            width: 150.781px;
+            word-spacing: 0px;
+            writing-mode: horizontal-tb;
+            -webkit-appearance: none;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-border-image: none;
+
+        }
+    </style>
+    <!-- <script src="assets/scripts/color_mode.js" type="module"></script> -->
+</head>
+
+<body id="body">
+    <main>
+
+
+        <span class="backgroud-blur">
+            <span class="loader"></span>
+        </span>
+
+        <input type="hidden" id="baseUrl" value="{{config.wwwroot}}">
+        <input type="hidden" id="isloggedin" value="{{isloggedin}}">
+        <!-- <div class="color-mode">
+        <img
+          id="color-mode"
+          src="https://ckorder-summary-component.netlify.app/assets/svg/toggle-right-24-regular.svg"
+          alt="Toggle"
+        />
+        <p id="color-mode-type"></p>
+      </div> -->
+
+        <section class="card">
+            <img src="vector girlimage.webp" alt="Illustration of a person listening to music" />
+
+            <div class="card__text">
+                <h1>Couse Plan</h1>
+                <p class="card__description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ad optio veniam velit facere
+                    asperiores error .
+                </p>
+
+                <div class="card__plan">
+                    <svg width="50" height="50" viewBox="0 0 72 71" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M14.625 24.4063H19.125C19.7438 24.4063 20.25 23.907 20.25 23.2969V20.712C20.25 19.6027 19.62 18.0606 18 17.5614V15.5867L23.22 17.3062L21.4425 22.5758C21.3912 22.7274 21.3738 22.8881 21.3914 23.0469C21.4091 23.2058 21.4614 23.359 21.5447 23.496C21.6281 23.633 21.7406 23.7506 21.8744 23.8407C22.0082 23.9308 22.1602 23.9913 22.32 24.018L35.82 26.2367C35.8763 26.2478 35.9437 26.2478 36 26.2478C36.0563 26.2478 36.1237 26.2478 36.18 26.2367L49.68 24.018C49.8398 23.9913 49.9918 23.9308 50.1256 23.8407C50.2594 23.7506 50.3719 23.633 50.4553 23.496C50.5386 23.359 50.5909 23.2058 50.6086 23.0469C50.6262 22.8881 50.6088 22.7274 50.5575 22.5758L48.78 17.3062L57.7238 14.3664C58.1738 14.2222 58.4775 13.8228 58.4888 13.3569C58.5113 12.8909 58.23 12.4694 57.8025 12.2919L36.4275 3.41687C36.1463 3.30594 35.8313 3.30594 35.55 3.41687L14.175 12.2919C13.7475 12.4694 13.4662 12.8909 13.4887 13.3569C13.5112 13.8228 13.815 14.2222 14.2538 14.3664L15.75 14.8545V17.5614C14.13 18.0606 13.5 19.6027 13.5 20.712V23.2969C13.5 23.907 14.0062 24.4063 14.625 24.4063ZM25.2675 14.4995C26.8537 13.5011 30.3525 11.837 36 11.837C41.6475 11.837 45.1463 13.5122 46.7325 14.4995C47.2613 14.8323 47.4075 15.5202 47.0812 16.0305C47.0017 16.1531 46.8984 16.2591 46.7772 16.3423C46.6561 16.4254 46.5194 16.4842 46.3752 16.5151C46.2309 16.546 46.0818 16.5485 45.9366 16.5225C45.7913 16.4964 45.6527 16.4423 45.5288 16.3633C44.1563 15.498 41.085 14.0447 36.0112 14.0447C30.9375 14.0447 27.8662 15.498 26.4937 16.3633C25.9762 16.6961 25.2788 16.5408 24.9413 16.0194C24.5925 15.5202 24.75 14.8323 25.2675 14.4995ZM15.75 20.7231C15.7612 20.2128 15.975 19.6027 16.875 19.6027C17.7863 19.6027 17.9888 20.2128 18 20.712V22.1875H15.75V20.7231ZM59.5463 32.1164V30.6298C59.5463 29.8422 59.2312 29.0989 58.6575 28.5553C58.0837 28.0006 57.3075 27.7011 56.52 27.7344C45.3713 28.045 37.9463 30.9848 36 31.8502C34.0537 30.9848 26.64 28.0561 15.48 27.7344C14.67 27.7011 13.9162 28.0006 13.3425 28.5553C12.7687 29.11 12.4537 29.8422 12.4537 30.6298V32.1164C10.4737 32.6156 9 34.3684 9 36.4763V60.2945C9 62.7795 11.0475 64.8097 13.5787 64.8097H58.4325C60.9525 64.8097 63.0112 62.7906 63.0112 60.2945V36.4763C63.0041 35.4739 62.6601 34.5023 62.0331 33.7133C61.4061 32.9244 60.5315 32.3628 59.5463 32.1164ZM56.5763 29.9531C56.7675 29.9531 56.9475 30.0197 57.0825 30.1528C57.2175 30.2859 57.2963 30.4523 57.2963 30.6409V57.6875C57.2963 58.0536 57.0038 58.3531 56.6325 58.3642C46.9688 58.6194 40.095 60.8492 37.1138 62.0141V33.7916C39.195 32.9152 46.2938 30.2416 56.5763 29.9531ZM14.7037 30.6298C14.7037 30.4413 14.7825 30.2748 14.9175 30.1417C15.0525 30.0197 15.2212 29.942 15.4125 29.942H15.435C25.7175 30.2305 32.8163 32.9041 34.8863 33.7805V61.9919C31.9163 60.827 25.0312 58.5972 15.3675 58.342C15.1899 58.3349 15.0219 58.2607 14.8983 58.1347C14.7747 58.0087 14.705 57.8406 14.7037 57.6653V30.6298Z"
+                            fill="black" />
+                        <path
+                            d="M17.8087 35.0563C18.9337 35.1339 20.07 35.2338 21.195 35.3669C21.24 35.3669 21.285 35.378 21.33 35.378C21.8925 35.378 22.3762 34.9675 22.4437 34.4017C22.4631 34.2573 22.4529 34.1104 22.414 33.9699C22.375 33.8293 22.308 33.6979 22.2168 33.5832C22.1257 33.4685 22.0122 33.3729 21.8831 33.302C21.754 33.2311 21.6119 33.1863 21.465 33.1703C20.295 33.0261 19.1137 32.9263 17.955 32.8486C17.6581 32.8295 17.3657 32.9274 17.1421 33.1209C16.9184 33.3144 16.7819 33.5876 16.7625 33.8803C16.7431 34.1731 16.8424 34.4614 17.0386 34.682C17.2349 34.9025 17.5119 35.0371 17.8087 35.0563ZM16.7625 37.3859C16.7518 37.5311 16.7705 37.6769 16.8175 37.8149C16.8644 37.9529 16.9388 38.0804 17.0361 38.1898C17.1335 38.2992 17.2519 38.3884 17.3846 38.4523C17.5172 38.5162 17.6614 38.5534 17.8087 38.5619C19.9237 38.695 22.0275 38.9391 24.0637 39.283C24.1312 39.2941 24.1875 39.2941 24.255 39.2941C24.795 39.2941 25.2675 38.9169 25.3575 38.3733C25.3821 38.2298 25.3778 38.0828 25.3447 37.941C25.3117 37.7991 25.2506 37.6651 25.1648 37.5465C25.0791 37.428 24.9706 37.3273 24.8453 37.2503C24.7201 37.1732 24.5806 37.1213 24.435 37.0975C22.3312 36.7425 20.1487 36.4873 17.955 36.3431C17.3362 36.3098 16.8075 36.7758 16.7625 37.3859ZM16.7625 43.3433C16.7518 43.4885 16.7705 43.6343 16.8175 43.7723C16.8644 43.9103 16.9388 44.0377 17.0361 44.1471C17.1335 44.2565 17.2519 44.3458 17.3846 44.4097C17.5172 44.4735 17.6614 44.5108 17.8087 44.5192C23.7712 44.9075 28.4625 46.0613 31.3425 46.9598C31.455 46.9931 31.5675 47.0153 31.68 47.0153C32.1525 47.0153 32.6025 46.7158 32.7487 46.2388C32.7937 46.1004 32.8105 45.9546 32.798 45.8098C32.7855 45.665 32.7441 45.5241 32.6761 45.3951C32.6081 45.2662 32.5149 45.1518 32.4019 45.0586C32.2889 44.9654 32.1582 44.8952 32.0175 44.852C29.025 43.9202 24.1425 42.722 17.955 42.3116C17.3362 42.2783 16.8075 42.7331 16.7625 43.3433ZM32.0175 48.99C29.025 48.0581 24.1537 46.86 17.955 46.4495C17.808 46.44 17.6605 46.4592 17.521 46.5059C17.3816 46.5526 17.2528 46.626 17.142 46.7218C17.0313 46.8176 16.9408 46.934 16.8757 47.0643C16.8105 47.1946 16.7721 47.3363 16.7625 47.4813C16.7518 47.6264 16.7705 47.7723 16.8175 47.9103C16.8644 48.0482 16.9388 48.1757 17.0361 48.2851C17.1335 48.3945 17.2519 48.4837 17.3846 48.5476C17.5172 48.6115 17.6614 48.6487 17.8087 48.6572C23.7712 49.0455 28.4625 50.1992 31.3425 51.0978C31.455 51.1311 31.5675 51.1533 31.68 51.1533C32.1525 51.1533 32.6025 50.8538 32.7487 50.3767C32.7944 50.2384 32.8116 50.0924 32.7994 49.9475C32.7872 49.8025 32.7459 49.6613 32.6778 49.5322C32.6098 49.4032 32.5163 49.2887 32.4029 49.1957C32.2896 49.1026 32.1585 49.0326 32.0175 48.99ZM32.0175 53.3055C29.025 52.3736 24.1425 51.1755 17.955 50.765C17.8078 50.7546 17.66 50.7731 17.5201 50.8195C17.3802 50.8659 17.2511 50.9392 17.1402 51.0352C17.0292 51.1312 16.9387 51.2479 16.8739 51.3786C16.8091 51.5093 16.7712 51.6515 16.7625 51.7967C16.7518 51.9419 16.7705 52.0877 16.8175 52.2257C16.8644 52.3637 16.9388 52.4911 17.0361 52.6005C17.1335 52.71 17.2519 52.7992 17.3846 52.8631C17.5172 52.927 17.6614 52.9642 17.8087 52.9727C23.7712 53.3609 28.4625 54.5147 31.3425 55.4133C31.455 55.4466 31.5675 55.4688 31.68 55.4688C32.1525 55.4688 32.6025 55.1692 32.7487 54.6922C32.7944 54.5538 32.8116 54.4079 32.7994 54.2629C32.7872 54.1179 32.7459 53.9768 32.6778 53.8477C32.6098 53.7186 32.5163 53.6042 32.4029 53.5111C32.2896 53.418 32.1585 53.3481 32.0175 53.3055ZM40.3087 47.0153C40.4212 47.0153 40.5337 47.0042 40.6462 46.9598C43.5262 46.0613 48.2062 44.9075 54.18 44.5192C54.327 44.5098 54.4707 44.4718 54.6028 44.4076C54.7349 44.3434 54.8529 44.2541 54.9501 44.1449C55.0472 44.0357 55.1216 43.9087 55.169 43.7712C55.2164 43.6336 55.2358 43.4882 55.2262 43.3433C55.2166 43.1983 55.1782 43.0567 55.1131 42.9264C55.0479 42.7961 54.9574 42.6797 54.8467 42.5839C54.7359 42.4881 54.6072 42.4147 54.4677 42.368C54.3282 42.3213 54.1807 42.3021 54.0337 42.3116C47.8462 42.7109 42.975 43.9202 39.9712 44.852C39.375 45.0406 39.0487 45.6619 39.24 46.2388C39.3975 46.7158 39.8362 47.0153 40.3087 47.0153ZM40.3087 51.1533C40.4212 51.1533 40.5337 51.1422 40.6462 51.0978C43.5262 50.1992 48.2062 49.0455 54.18 48.6572C54.7987 48.6128 55.2712 48.0914 55.2262 47.4813C55.1812 46.8711 54.6412 46.4163 54.0337 46.4495C47.8462 46.86 42.975 48.0581 39.9712 48.99C39.375 49.1786 39.0487 49.7998 39.24 50.3767C39.3975 50.8538 39.8362 51.1533 40.3087 51.1533ZM40.3087 55.4688C40.4212 55.4688 40.5337 55.4577 40.6462 55.4133C43.5262 54.5147 48.2062 53.3609 54.18 52.9727C54.327 52.9632 54.4707 52.9253 54.6028 52.861C54.7349 52.7968 54.8529 52.7076 54.9501 52.5984C55.0472 52.4892 55.1216 52.3622 55.169 52.2246C55.2164 52.0871 55.2358 51.9417 55.2262 51.7967C55.2166 51.6518 55.1782 51.5101 55.1131 51.3798C55.0479 51.2495 54.9574 51.1331 54.8467 51.0373C54.7359 50.9415 54.6072 50.8682 54.4677 50.8214C54.3282 50.7747 54.1807 50.7555 54.0337 50.765C47.8462 51.1644 42.975 52.3736 39.9712 53.3055C39.375 53.4941 39.0487 54.1153 39.24 54.6922C39.3975 55.1692 39.8362 55.4688 40.3087 55.4688Z"
+                            fill="black" />
+                    </svg>
+
+                    <div class="card__plan--annual">
+                        <h2 id="plan-type"></h2>
+                        <p id="plan-price"></p>
+                    </div>
+                    <!-- <button id="btn-change" href="#">Change</button> -->
+                    <button id="btn-change" href="#">{{amount}} SAR</button>
+                </div>
+
+                <button id="btn-payment" class="btn btn-blue">
+                    Proceed to Payment
+                </button>
+
+                <button class="btn btn-white">Cancel Order</button>
+            </div>
+        </section>
+        <section id="pop-up" class="pop-up">
+            <div id="cta" class="cta">
+                <div class="cta-data">
+                    <h1 class="margin-bottom-sm">First You need to Login In</h1>
+
+                    <form class="cta-form" action="index.php" id="loginForm">
+                        <p id="loginError"></p>
+                        <div>
+                            <label for="card-number">Username</label>
+                            <input class="email-id" name="username" type="username" placeholder="Username" required />
+                        </div>
+
+                        <div>
+                            <label>Password</label>
+                            <input id="address" name="password" type="password" placeholder="Password" required />
+                        </div>
+                        <input type="hidden" name="formType" value="login">
+                        <div class="btn-flex">
+                            <button id="btn-back" class="btn btn-white">Back</button>
+                            <button class="btn btn-blue" id="btnblue" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cta-value">
+
+                    <h1 class="margin-bottom-vsm">New Here ?</h1>
+
+                    <div class="plan-type">
+                        <p>Sign Up and discover a great amount of <br> new opportunites!
+
+                        </p>
+
+                    </div>
+                    <button class="btn1"> New Registartion</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="new_registration" class="pop-up">
+            <div id="new_registration_cta" class="cta">
+                <div class="cta-data">
+                    <h1 class="margin-bottom-sm">New Registartion</h1>
+
+                    <form class="cta-form" action="#" id="registrationForm">
+                        <div>
+                            <label for="card-number">User Name</label>
+                            <input id="reg_username" name="username" type="text" placeholder="User Name" required
+                                minlength="3" maxlength="16" />
+                            <p id="reg_username-error"></p>
+                        </div>
+                        <div>
+                            <label for="first name">First Name</label>
+                            <input id="reg_firstname" type="text" name="firstname" placeholder="First Name" required
+                                minlength="3" maxlength="16" />
+                            <p id="reg_firstname-error"></p>
+                        </div>
+                        <div>
+                            <label for="Last name">Last Name</label>
+                            <input id="reg_lastname" type="text" name="lastname" placeholder="Last Name" required
+                                minlength="3" maxlength="16" />
+                            <p id="reg_lastname-error"></p>
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="reg_email" id="email" name="email" type="email" placeholder="your_email@here.com"
+                                required />
+                            <p id="reg_email-error"></p>
+                        </div>
+                        <div>
+                            <label for="password">Password</label>
+                            <input id="reg_password" type="password" name="password" placeholder="Password" required
+                                minlength="8" maxlength="16" />
+                            <p id="reg_password-error"></p>
+                        </div>
+
+                        <div>
+                            <label for="phone Nmuber">Phone number</label>
+                            <input type="tel" name="phone" id="phone" placeholder="Enter phone number">
+                            {{! <input id="reg_phone" type="text" name="phone" placeholder="Number" required
+                                maxlength="10" onkeypress="return validateNumber(event)" /> }}
+                            <p id="reg_phone-error"></p>
+                        </div>
+                        <input type="hidden" name="formType" value="registration">
+
+                        <div class="btn-flex">
+                            <button id="new_registration_backBtn" class="btn btn-white">Back</button>
+                            <button class="btn btn-blue" id="new_registrationcontinue1" type="submit">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="cta-value">
+                    <div class="contentbox">
+                        <div cl>
+                            <h1> Already Have An Account ?</h1>
+                            <button class="login1">Login</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <input type="hidden" id="alreadyPaid" value="{{ alreadyPaid }}" />
+        {{#moyasar}}
+        {{> local_payment/moyasarform }}
+        {{/moyasar}}
+        {{^moyasar}}
+        {{#paylink}}
+        {{> local_payment/paylinkform }}
+        {{/paylink}}
+        {{#tap}}
+        {{> local_payment/tapform}}
+        {{/tap}}
+        {{/moyasar}}
+
+
+
+
+        <section id="alertpopup" class="pop-up">
+            <div id="ctaalert" class="cta">
+                <div class="cta-data">
+                    <h1>Course Payment Done Sucessfully</h1>
+                </div>
+        </section>
+        <!-- <section id="loginpopup" class="pop-up">
+            <div id="ctaalert" class="cta">
+                <div class="cta-data">
+                    <h1>Logged in Sucessfully</h1>
+                </div>
+        </section> -->
+        <!-- <section id="registrationpopup" class="pop-up">
+            <div id="ctaalert" class="cta">
+                <div class="cta-data">
+                    <h1>User Registration Sucessfully</h1>
+                </div>
+        </section> -->
+        <!-- <section id="alreadypaidpopup" class="pop-up">
+            <div id="ctaalert" class="cta">
+                <div class="cta-data">
+                    <h1>Course already bought!</h1>
+                </div>
+        </section> -->
+    </main>
+    <script>
+        // Validate Phone
+        function validateNumber(e) {
+            const pattern = /^[0-9]$/;
+            return pattern.test(e.key)
+        }
+        const input = document.querySelector("#phone");
+        // const iti = window.intlTelInputGlobals.getInstance(phone);
+        window.intlTelInput(input, {
+            utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@19.2.15/build/js/utils.js",
+        });
+
+        const appliedDiscount = $(".appliedDiscount");
+        appliedDiscount.css('display', 'none');
+        const invalidCoupon = $("#invalidCoupon");
+        invalidCoupon.css('display', 'none');
+    </script>
+
+
+</body>
+
+</html>

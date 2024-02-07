@@ -1,0 +1,87 @@
+<section id="paymentpopup" class="pop-up">
+    <div id="ctapayment" class="cta">
+        <div class="cta-data">
+            <h1 class="margin-bottom-sm">Enter your payment details</h1>
+            <input type="hidden" id="userid" value="{{userid}}">
+            <input type="hidden" id="courseid" value="{{courseid}}">
+            <input type="hidden" id="couponid" class="couponid">
+            <form class="cta-form" action="#" method="post" id="form_id" data-type="paylink">
+                <input type="hidden" name="callback_url" id="callback_url"
+                    value="http://yislms.com/lms/local/payment/success.php?courseid={{courseid}}&userid={{userid}}" />
+                <input type="hidden" name="amount"
+                    value="{{#totalAmount}}{{totalAmount}}{{/totalAmount}}{{^totalAmount}}{{amount}}{{/totalAmount}}"
+                    id="amount" />
+                <input type="hidden" name="source[type]" value="creditcard" />
+                <input type="hidden" name="description" value="Course payment" />
+
+                <div class="d-flex">
+                    <label for="name">Name:</label>
+                    <input type="text" id="pay_username" readonly />
+                </div>
+
+                <div class="d-flex">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" placeholder="Enter Card No." id="cardNumber" readonly />
+                </div>
+
+                <div class="d-flex">
+                    <div class="first">
+                        <label for="name">Month of Exp:</label>
+                        <input type="text" placeholder="MM" id="cardMonth" readonly />
+                    </div>
+                    <div class="first">
+                        <label for="name">Year of Exp:</label>
+                        <input type="text" placeholder="YYYY" id="cardYear" readonly />
+                    </div>
+                    <div class="first">
+                        <label for="name">CVV:</label>
+                        <input type="password" placeholder="CVV" id="cardcvv" readonly />
+
+                    </div>
+                    <div class="first">
+                        <label for="name">Coupon Code</label>
+                        <input type="text" placeholder="Coupon Code" id="couponCode" />
+
+                    </div>
+                    <p class="check">Check Coupon</p> <span id="invalidCoupon">Invalid Coupon!</span>
+                    <div class="btn-flex">
+                        <button id="btn-back1" class="btn btn-white">Back</button>
+                        <button class="btn btn-blue Continue-payment endresult" id="submit_button_id"
+                            type="submit">Continue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="cta-value">
+            <form action="#">
+                <h3 class="margin-bottom-vsm">Billing cycle</h3>
+
+
+            </form>
+
+            <div class="plan-price">
+                <div>
+                    <p><strong>Total</strong></p>
+                    <span id="total-value" class="strong"> {{amount}}</span>
+                </div>
+                {{#vat}}
+                <div>
+                    <p><strong>VAT</strong></p>
+                    <span id="total-value" class="strong"> +{{vat}}%</span>
+                </div>
+                {{/vat}}
+                <div class="appliedDiscount">
+                    <p><strong>Discount</strong></p>
+                    <span id="discount" class="strong"></span>
+                </div>
+                <hr>
+                <div>
+                    <p><strong>Total</strong></p>
+                    <span id="finalAmount" class="strong">{{totalAmount}}</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

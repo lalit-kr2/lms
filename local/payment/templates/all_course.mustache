@@ -1,0 +1,680 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>All Courses</title>
+<style>
+    body {
+        overflow-x: hidden;
+    }
+
+    * {
+        margin: 0;
+
+    }
+header {
+    width: 100%;
+    padding: 20px 5px;
+    background-color: #ffffff !important;
+}
+    .card1 {
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        /* margin-top: 20px; */
+        gap: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .item img {
+        width: 100%;
+        height: 174px;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    button.owl-next.disabled {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background: transparent; */
+        /* background: red; */
+    }
+
+    .owl1 {
+        width: 89%;
+        margin: 20px auto;
+        height: 364px;
+        position: relative;
+        height: inherit;
+        padding: 20px;
+    }
+
+    .card1 {
+        /* display: flex; */
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        margin: auto;
+        /* margin-top: 20px; */
+        gap: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-bottom: 60px;
+    }
+
+    .view-all {
+
+        padding: 12px 30px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 20px;
+        font-size: 20px;
+        color: #fff;
+        background-color: #ff7a59;
+        text-decoration: none;
+
+    }
+
+    .view-all {
+        padding: 6px 28px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 20px;
+        font-size: 17px;
+        position: absolute;
+        color: #fff;
+        background-color: #ff7a59;
+        text-decoration: none;
+        /* right: 50px; */
+        transform: translate(-50%, 20%);
+        bottom: -60px;
+        left: 50%;
+    }
+
+    .part-2 {
+        position: relative;
+        margin-bottom: 40px;
+    }
+
+    .a1 {
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        display: flex;
+        /* align-items: center; */
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 22px;
+        overflow: hidden;
+    }
+
+    .head-box {
+        padding: 11px;
+    }
+
+    .a1 img {
+        width: 100%;
+        height: 199px;
+        object-fit: cover;
+    }
+
+    h2.h2 {
+        font-size: 29px;
+        margin: 9px 0;
+        font-family: system-ui;
+        font-weight: 500;
+        color: #032d5a;
+    }
+
+    .checked {
+        color: orange;
+
+        padding-top: 20px;
+    }
+
+    header {
+        width: 100%;
+        padding: 20px 5px;
+        background-color: #ffebe7;
+    }
+
+    .dep-btn {
+        display: flex;
+        align-items: center;
+        column-gap: 26px;
+    }
+
+    .leftnav-sec {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 30px;
+        width: 90%;
+        margin: auto;
+    }
+
+    .logo {
+        width: 250px;
+        height: auto;
+        padding-top: 5px;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .rightnav-sec {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 303px;
+        gap: 30px;
+    }
+
+    .btn1 {
+        padding: 12px 33px;
+        border: none;
+        border-radius: 20px;
+        background-color: #fff;
+        font-size: 18px;
+        color: black;
+    }
+
+    .btn2 {
+        padding: 12px 33px;
+        border: none;
+        border-radius: 20px;
+        background-color: #094368;
+        font-size: 18px;
+        color: #fff;
+    }
+    .btn2 a{
+  
+        color: #fff;
+    }
+
+    .icon {
+        font-size: 25px;
+        color: #6c6c6c;
+        position: relative;
+        z-index: 1;
+    }
+
+    .icon .count {
+        position: absolute;
+        top: -15px;
+        right: -14px;
+        z-index: 2;
+        font-size: 10px;
+        border-radius: 50%;
+        background: #ff7a59;
+        width: 21px;
+        height: 20px;
+        line-height: 20px;
+        display: block;
+        text-align: center;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+
+    .head-couses-h1 {
+
+        color: #ff7a59;
+        text-align: center;
+        font-size: 35px;
+        font-weight: 600;
+        margin: 0px;
+
+        padding-top: 40px;
+        margin-bottom: 54px;
+
+    }
+
+    .a1 {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .a1:hover {
+        transform: translateY(-10px);
+        /* Adjust the value based on how much you want it to move up */
+    }
+
+    p.dep {
+        font-size: 13px;
+        font-family: sans-serif;
+    }
+
+    .head-box {
+        padding: 20px;
+    }
+    .inner-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        padding: 15px 0px;
+        font-family: sans-serif;
+        flex-wrap: nowrap;
+    }
+
+    button.buy-course {
+        background: #FF9800;
+        border: none;
+        padding: 9px;
+        border-radius: 7px;
+        color: white;
+        font-size: 10px;
+    }
+    .btn1 {
+    padding: 10px 38px;
+    border: none;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 18px;
+    color: black;
+    color: white !important;
+    background: #ec742e;
+}
+.loign{
+    color:white;
+    text-decoration: none;
+    
+}
+   .s1 {
+     width: 100%;
+     padding-top: 50px;
+     text-align: center;
+     margin-top: 60px;
+   }
+   .counter-area {
+       margin-top: 57px;
+   }
+   .fom1 {
+     width: 100%;
+     text-align: center;
+   }
+   .fom1 input {
+       padding: 12px 30px;
+       border-radius: 20px;
+       border: none;
+       background-color: transparent;
+       outline: #919191 solid 1px;
+       width: 313px;
+   }
+   
+   .last-btn {
+     padding: 12px 30px;
+     margin-left: 10px;
+     border: none;
+     border-radius: 20px;
+     font-size: 20px;
+     color: #fff;
+   background-color: #ff7a59;
+   }
+   
+   .fom1 input::placeholder {
+     color: rgb(167, 167, 167);
+     font-size: 16px;
+   }
+   .content {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 30px;
+     margin-top: 50px;
+   }
+   
+   .content h5 {
+       color: #bbbbbb;
+       font-size: 18px;
+       font-weight: 200;
+   }
+   .main-footer{
+       color: #bbbbbb;
+   }
+   .banner-content .section-title {
+       font-size: 70px;
+       font-weight: 600;
+       font-family: auto;
+       line-height: 1.1;
+       width: 155%;
+       margin-bottom: 15px;
+   }
+   .flexbox {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     width: 86%;
+     margin: auto;
+     position: relative;
+   }
+   
+   .logos {
+     width: 150px;
+     height: auto;
+   }
+   
+   .logos img {
+     width: 100%;
+   }
+   
+   .s1 h1 {
+       font-size: 39px;
+   }
+   .header-area {
+       /* padding: inherit; */
+      
+   }
+   .sing-up {
+    background-color: #094368;
+    color: white;
+}
+.login-btn{
+color: white;
+    background: #ec742e;
+
+}
+a.login-btn:hover {
+    color: white;
+}
+a.sing-up:hover {
+    color: white;
+}
+.sign-up:focus{
+    color: white;
+    background-color: #094368;
+} 
+.sign-up:hover{
+    color: white;
+    background-color: #094368;
+    border-radius:30px ;
+} 
+.category-item {
+    height: inherit !important;
+    background-color: #fff;
+    box-shadow: 0px 20px 40px rgb(30 30 30 / 5%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+.a1 {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    /* align-items: center; */
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 22px;
+    background: white;
+    overflow: hidden;
+}
+input.search {
+    padding: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 10px;
+    margin: 12px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.search-icon{
+
+}
+.search-icon {
+    position: absolute;
+    top: -1px;
+    right: 21px;
+}
+span.search-type {
+    position: relative;
+}
+.data_not_found{
+
+}
+.card1{
+ position: relative;
+}
+h1.data_not_found {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 27%;
+    transform: translate(-50%, -50%);
+    margin-top: 69px;
+    padding: 33px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+
+        .footer-img {
+            margin-bottom: 10px;
+        }
+
+
+        .footer-sec {
+            color: #fff;
+            /* background-image: linear-gradient(90deg, #094368 0%, #006B83 100%); */
+
+            width: 100%;
+            /* height: 100%; */
+            border-top-left-radius: 70px;
+            font-size: 0.8rem;
+
+            /* padding: 10px; */
+        }
+
+        .footer-sec p {
+            color: white !important;
+        }
+
+
+        .footer-sec h3 {
+            color: white !important;
+            font-size: 1.4rem !important;
+        }
+
+        .mainfooter-box {
+            width: 96%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .btn-know {
+            text-decoration: none;
+            background-color: #fff;
+            padding: 10px;
+            background-color: transparent;
+            border: 1px solid #98A8F8;
+            color: #98A8F8;
+            text-transform: uppercase;
+            border-radius: 10px;
+        }
+
+        .link-des {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mainfooter-box {
+            width: 96%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: -26px;
+        }
+
+        .link-des a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .newsletter-des {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+.footer-sec p {
+    color: white !important;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+        input[type=mail] {
+            border: none;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #fff;
+            background-color: transparent;
+            font-size: 0.8rem;
+        }
+        .copyright p {
+    padding: 31px 0;
+    font-size: 17px;
+}
+.buy-btn {
+    background: grey;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 25px;
+    font-weight: 600;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.buy-btn:hover {
+    background: #3829E0;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 25px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.col-12.pt-3.pb-3 {
+    display: none;
+}
+</style>
+
+<body>
+    <div class="main-card" style="background-color:#f3f4fd; border-radius: 15px; margin: auto;">
+        <div class="head-couses" style="width: 100%; text-align: center;">
+            <h2 class="head-couses-h1" style="">
+                <span style="color:#084268">Our </span>Courses
+            </h2>
+            <span class="search-type">
+            <input class="search" type="text" placeholder="search">
+            <span class="search-icon" > 
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.146 15.3707 4.888 14.112C3.63 12.8533 3.00067 11.316 3 9.5C3 7.68333 3.62933 6.146 4.888 4.888C6.14667 3.63 7.684 3.00067 9.5 3C11.3167 3 12.8543 3.62933 14.113 4.888C15.3717 6.14667 16.0007 7.684 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8127 13.5627 12.688 12.688C13.5633 11.8133 14.0007 10.7507 14 9.5C14 8.25 13.5627 7.18767 12.688 6.313C11.8133 5.43833 10.7507 5.00067 9.5 5C8.25 5 7.18767 5.43767 6.313 6.313C5.43833 7.18833 5.00067 8.25067 5 9.5C5 10.75 5.43767 11.8127 6.313 12.688C7.18833 13.5633 8.25067 14.0007 9.5 14Z" fill="#EC742E"/>
+                </svg>
+            </span>
+        </span>
+        </div>
+        <div class="card1">
+            {{#course_arr}}
+            <div class="a1">
+                <a class="anchorTag" href="{{config.wwwroot}}/local/tenant/allcourse.php?id={{id}}">
+                    <img src="{{imageurl}}" alt="">
+                </a>
+                <div class="head-box">
+                    <h2 class="h2">{{fullname}}</h2>
+                    <div class="inner-box">
+                        <i class="fa-regular fa-clock"></i>
+                        <p class="dep " > <span class="days" >{{duration}}</span>  Days</p>
+                        <p class="dep" >₹ <span class="price" >{{price}}</span></p>
+                        <a class="buy-btn" href="{{config.wwwroot}}/local/payment/index.php?id={{id}}">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            {{/course_arr}}
+        </div>
+    </div>
+    </div>
+
+    <script>
+        const course = document.querySelectorAll('.a1')
+        const search = document.querySelector('.search')
+        const card1 = document.querySelector('.card1')
+        let allCourseData = []
+        course.forEach((e)=>{
+           const link = e.querySelector('.anchorTag').href
+           const blink = e.querySelector('.buy-btn').href
+           const price = e.querySelector('.head-box .inner-box .price').innerText
+           const img = e.querySelector('.anchorTag img').src
+           const title = e.querySelector('.head-box .h2').innerText
+           const days = e.querySelector('.head-box .inner-box .days').innerText
+           allCourseData.push({img,link,blink,price,days,title})
+
+        })
+        search.addEventListener("input",()=>{
+           const filterdata = allCourseData.filter((e)=>e.title.toLowerCase().includes(search.value.toLowerCase()))
+           const mapedData = filterdata.map((e)=>{
+            const {img,link,blink,price,days,title} = e
+            return (` <div class="a1">
+                <a class="anchorTag" href="${link}">
+                    <img src="${img}" alt="">
+                </a>
+                <div class="head-box">
+                    <h2 class="h2">${title}</h2>
+                    <div class="inner-box">
+                        <i class="fa-regular fa-clock"></i>
+                        <p class="dep " > <span class="days" >${days}</span>  Days</p>
+                        <p class="dep" > <span class="price" >₹ ${price} </span></p>
+                        <a class="dep buy-btn" href="${blink}">Buy Now</a>
+                    </div>
+                </div>
+            </div> `)
+
+           })
+const dataFilter = mapedData.length > 0 ? mapedData.join(' ') : `<h1 class="data_not_found" >Data not found  <b>" ${search.value} "</b></h1>`
+card1.innerHTML = dataFilter
+
+        })
+
+
+
+    </script>
+    <script>
+          const paradata = document.querySelectorAll(".course-hover-content-text")
+        paradata.forEach(element => {
+            console.log()
+            let dataWithoutTags = element.textContent.split(' ')
+
+            console.log(dataWithoutTags);
+
+            let ele = (dataWithoutTags.length > 1 && dataWithoutTags.length < 25) ? (dataWithoutTags.slice(0, 25).join(' ')) : (dataWithoutTags.slice(0, 25).join(' ') + '...')
+            console.log(ele)
+            element.innerHTML = `<p>${ele}</p>`
+        });
+        $(document).ready(function () {
+            $(".addToCart").on('click', function () {
+                let courseid = $(this).attr("id").split("_")[1];
+                let cartCount = $(".cartcount").text();
+                $.ajax({
+                    url: $("#base_url").val() + "/local/tenant/cart.php",
+                    method: "post",
+                    data: { courseid, cartCount },
+                    dataType: "json",
+                    success: function (response) {
+                        $(".cartcount").text(response.count);
+                        document.getElementById('course_' + courseid).style.background = 'green';
+                        document.getElementById('course_' + courseid).innerHTML = 'Added';
+                        if (response.added) {
+                        }
+                    }
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<h2 class="paymentgateway">Payment Gateway</h2>
+<p class="configure">Configure An Active Payment Method</p>
+<div class="paymentbox">
+    <div class="innerpaymentbox">
+        {{#gateways}}
+        <div class="img-box">
+            <div class="imgtext">
+                <img src="{{logo}}" alt="">
+                <h2>{{name}}</h2>
+                {{#active}}
+                <p class="heading1">Primary</p>
+                {{/active}}
+            </div>
+            <i class="fa-solid fa-pen"></i>
+            {{^active}}
+            <h4 class="heading" id="gateid_{{id}}">Set as Primary</h4>
+            {{/active}}
+        </div>
+        {{/gateways}}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="local/payment/db" VERSION="20190520002" COMMENT="XMLDB file for Moodle local/payment"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="new_payment" COMMENT="Table to store payment information">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="true" AUTO_INCREMENT="true" COMMENT="Primary key"/>
+                <FIELD NAME="userid" TYPE="bigint" LENGTH="20" DEFAULT="NULL" COMMENT="User ID"/>
+                <FIELD NAME="courseid" TYPE="bigint" LENGTH="20" DEFAULT="NULL" COMMENT="Course ID"/>
+                <FIELD NAME="orderid" TYPE="varchar" LENGTH="255" COLLATION="utf8mb4_unicode_ci" DEFAULT="NULL" COMMENT="Order ID"/>
+                <FIELD NAME="status" TYPE="varchar" LENGTH="100" COLLATION="utf8mb4_unicode_ci" DEFAULT="NULL" COMMENT="Status"/>
+                <FIELD NAME="amount" TYPE="int" LENGTH="11" DEFAULT="NULL" COMMENT="Amount"/>
+                <FIELD NAME="currency" TYPE="varchar" LENGTH="100" COLLATION="utf8mb4_unicode_ci" DEFAULT="NULL" COMMENT="Currency"/>
+                <FIELD NAME="message" TYPE="varchar" LENGTH="100" COLLATION="utf8mb4_unicode_ci" DEFAULT="NULL" COMMENT="Message"/>
+                <FIELD NAME="timecreated" TYPE="bigint" LENGTH="20" DEFAULT="NULL" COMMENT="Timestamp of creation"/>
+                <FIELD NAME="timemodified" TYPE="bigint" LENGTH="20" DEFAULT="NULL" COMMENT="Timestamp of modification"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>

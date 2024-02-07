@@ -1,0 +1,86 @@
+<style>
+    #couponCode {
+        padding: 6px 8px;
+        font-size: medium;
+        border: none;
+        border-bottom: 1px solid #d6d5df;
+        margin-left: 5px;
+        outline: none;
+    }
+
+    #couponCode:focus {
+        outline: none !important;
+        border-bottom: 1px solid black;
+    }
+
+    #tap-cnl-btn {
+        padding: 6px 60px;
+        font-size: medium;
+        font-weight: bold;
+    }
+</style>
+<section id="paymentpopup" class="pop-up">
+    <div id="ctapayment" class="cta">
+        <div class="cta-data">
+            <h1 class="margin-bottom-sm">Enter your payment details</h1>
+            <input type="hidden" id="alreadyPaid" value="{{alreadyPaid}}">
+            <form id="form-container" method="post" action="/charge">
+                <input type="hidden" name="amount"
+                    value="{{#totalAmount}}{{totalAmount}}{{/totalAmount}}{{^totalAmount}}{{amount}}{{/totalAmount}}"
+                    id="amount" />
+                <!-- Tap element will be here -->
+                <div id="element-container"></div>
+                <div id="error-handler" role="alert"></div>
+                <!-- <div id="success" style=" display: none;;position: relative;float: left;">
+                    Success! Your token is <span id="token"></span>
+                </div> -->
+                <div class="first">
+                    <label for="name">Coupon Code</label>
+                    <input type="text" placeholder="Coupon Code" name="coupon" minlength="6" id="couponCode"
+                        maxlength="6" />
+                </div>
+                <p class="check">Check Coupon</p> <span id="invalidCoupon">Invalid Coupon!</span>
+                <!-- Tap pay button -->
+                <input type='cancel' name='cancel' value='Cancel' />
+                <button id="tap-btn" type="submit">Continue</button>
+            </form>
+            <!-- <span id="card-errors"></span> -->
+            <form action="#" id="payment-form">
+                <input type="hidden" id="userid" value="{{userid}}">
+                <input type="hidden" id="courseid" value="{{courseid}}">
+                <input type="hidden" id="couponid" class="couponid">
+                <input type="hidden" name="amount"
+                    value="{{#totalAmount}}{{totalAmount}}{{/totalAmount}}{{^totalAmount}}{{amount}}{{/totalAmount}}"
+                    id="amount" />
+            </form>
+        </div>
+
+        <div class="cta-value">
+            <form action="#">
+                <h3 class="margin-bottom-vsm">Billing cycle</h3>
+            </form>
+            <div class="plan-price">
+                <div>
+                    <p><strong>Total</strong></p>
+                    <span id="total-value" class="strong"> {{amount}}</span>
+                </div>
+                {{#vat}}
+                <div>
+                    <p><strong>VAT</strong></p>
+                    <span id="total-value" class="strong"> +{{vat}}%</span>
+                </div>
+                {{/vat}}
+                <div class="appliedDiscount">
+                    <p><strong>Discount</strong></p>
+                    <span id="discount" class="strong"></span>
+                </div>
+                <hr>
+                <div>
+                    <p><strong>Total</strong></p>
+                    <span id="finalAmount" class="strong">{{totalAmount}}</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/coupon_pay/db" VERSION="20220101" COMMENT="XMLDB file for Moodle mod_yourmodule" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+    <TABLES>
+        <TABLE NAME="coupon_pay" COMMENT="Table to store coupon code information">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="11" NOTNULL="true" UNSIGNED="true" AUTO_INCREMENT="true" COMMENT="Primary key"/>
+                <FIELD NAME="coupon" TYPE="text" NOTNULL="false" DEFAULT="NULL" COMMENT="Coupon code"/>
+                <FIELD NAME="discount" TYPE="int" LENGTH="11" NOTNULL="false" DEFAULT="NULL" COMMENT="Discount value"/>
+                <FIELD NAME="start_date" TYPE="bigint" LENGTH="20" NOTNULL="false" DEFAULT="NULL" COMMENT="Start date of the coupon"/>
+                <FIELD NAME="expiry_date" TYPE="bigint" LENGTH="20" NOTNULL="false" DEFAULT="NULL" COMMENT="Expiry date of the coupon"/>
+                <FIELD NAME="timecreated" TYPE="bigint" LENGTH="20" NOTNULL="false" DEFAULT="NULL" COMMENT="Timestamp of creation"/>
+                <KEYS>
+                    <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                </KEYS>
+            </FIELDS>
+            <INDEXES>
+                <!-- You can add indexes if needed -->
+            </INDEXES>
+            <OPTIONS>
+                <OPTION NAME="engine" VALUE="InnoDB"/>
+                <OPTION NAME="auto_increment" VALUE="6"/>
+                <OPTION NAME="collation" VALUE="utf8mb4_unicode_ci"/>
+            </OPTIONS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
